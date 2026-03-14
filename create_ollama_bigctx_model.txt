@@ -1,0 +1,19 @@
+# Windows（PowerShell）
+cd ~\
+@"
+FROM qwen2.5:7b
+PARAMETER num_ctx 32768
+"@ | Out-File -Encoding ascii Modelfile
+
+ollama create qwen2.5:7b-32k -f Modelfile
+进阶：创建大上下文模型（OpenClaw 必须 ≥16k tokens）
+OpenClaw 默认需要 16k+ 上下文，否则会报错。我们用 Modelfile 扩展：
+
+
+
+# 推荐技能
+npx clawhub install filesystem-mcp     # 文件系统
+npx clawhub install github             # GitHub（需 gh CLI）
+npx clawhub install summarize          # 总结 PDF/网页
+npx clawhub install weather            # 天气（无需 API）
+npx clawhub install openai-whisper     # 本地语音识别
