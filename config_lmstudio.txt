@@ -1,0 +1,179 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.3.12",
+    "lastTouchedAt": "2026-03-13T08:34:47.434Z"
+  },
+  "wizard": {
+    "lastRunAt": "2026-03-12T10:43:39.060Z",
+    "lastRunVersion": "2026.3.8",
+    "lastRunCommand": "configure",
+    "lastRunMode": "local"
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "lmstudio": {
+        "baseUrl": "http://127.0.0.1:1234/v1",
+        "apiKey": "aaa",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "lmstudio/qwen3.5-9b",
+            "name": "lmstudio/qwen3.5-9b",
+            "api": "openai-responses",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 60000,
+            "maxTokens": 8196
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "lmstudio/qwen3.5-9b"
+      },
+      "models": {
+        "lmstudio/qwen3.5-9b": {
+          "alias": "lmstudio"
+        }
+      },
+      "workspace": "C:\\Users\\fearless\\.openclaw\\workspace",
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
+      }
+    }
+  },
+  "tools": {
+    "profile": "full",
+    "web": {
+      "search": {
+        "enabled": true
+      },
+      "fetch": {
+        "enabled": true
+      }
+    }
+  },
+  "messages": {
+    "ackReactionScope": "group-mentions"
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true,
+    "ownerDisplay": "raw"
+  },
+  "session": {
+    "dmScope": "per-channel-peer",
+    "timeoutSeconds": 120
+  },
+  "hooks": {
+    "internal": {
+      "enabled": true,
+      "entries": {
+        "boot-md": {
+          "enabled": true
+        },
+        "command-logger": {
+          "enabled": true
+        },
+        "session-memory": {
+          "enabled": false
+        }
+      }
+    }
+  },
+  "channels": {
+    "feishu": {
+      "enabled": true,
+      "appId": "cli_a9382bf1a1795bc0",
+      "appSecret": "9LQQT8DyYrsUCvGc1Yn5ncW8dzilIEoB",
+      "connectionMode": "websocket",
+      "domain": "feishu",
+      "groupPolicy": "open",
+      "dmPolicy": "open",
+      "allowFrom": [
+        "*"
+      ]
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "loopback",
+    "auth": {
+      "mode": "token",
+      "token": "dbd7e7605b720e979864525e05b619e0be7162400e95e0a8"
+    },
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    }
+  },
+  "skills": {
+    "install": {
+      "nodeManager": "npm"
+    },
+    "entries": {
+      "nano-banana-pro": {
+        "apiKey": "y"
+      },
+      "notion": {
+        "apiKey": "y"
+      }
+    }
+  },
+  "plugins": {
+    "allow": [
+      "",
+      "feishu",
+      "openclaw-tavily"
+    ],
+    "load": {
+      "paths": [
+        "C:\\Users\\fearless\\AppData\\Roaming\\npm\\node_modules\\openclaw\\extensions\\feishu"
+      ]
+    },
+    "entries": {
+      "feishu": {
+        "enabled": true
+      },
+      "openclaw-tavily": {
+        "enabled": true,
+        "config": {
+          "apiKey": "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"
+        }
+      }
+    },
+    "installs": {
+      "openclaw-tavily": {
+        "source": "npm",
+        "spec": "openclaw-tavily",
+        "installPath": "C:\\Users\\fearless\\.openclaw\\extensions\\openclaw-tavily",
+        "version": "0.2.1",
+        "resolvedName": "openclaw-tavily",
+        "resolvedVersion": "0.2.1",
+        "resolvedSpec": "openclaw-tavily@0.2.1",
+        "integrity": "sha512-Y/cYTiKWGjWm8TF0/0DGyB80Kuke1oJKEPcFvjmHutXSZSx42RmMqZ3I6kMz12hw1eoxJwQ8a0EJQAvq45KciQ==",
+        "shasum": "544d324879914108c50cfd801d7cff704069970d",
+        "resolvedAt": "2026-03-13T01:45:17.215Z",
+        "installedAt": "2026-03-13T01:45:19.096Z"
+      }
+    }
+  }
+}
