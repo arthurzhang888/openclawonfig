@@ -1,0 +1,131 @@
+启动
+ .\llama-server.exe -m C:\Users\Administrator\Downloads\Qwen3.5-4B-Q4_K_M.gguf --host 0.0.0.0 --port 8088 -c 39000  --jinja  -ngl 99
+
+curl.exe http://127.0.0.1:8088/v1/models
+{"models":[{"name":"Qwen3.5-4B-Q4_K_M.gguf","model":"Qwen3.5-4B-Q4_K_M.gguf","modified_at":"","size":"","digest":"","type":"model","description":"","tags":[""],"capabilities":["completion"],"parameters":"","details":{"parent_model":"","format":"gguf","family":"","families":[""],"parameter_size":"","quantization_level":""}}],"object":"list","data":[{"id":"Qwen3.5-4B-Q4_K_M.gguf","aliases":[],"tags":[],"object":"model","created":1773546541,"owned_by":"llamacpp","meta":{"vocab_type":2,"n_vocab":248320,"n_ctx_train":262144,"n_embd":2560,"n_params":4205751296,"size":2729969664}}]}
+
+参数	说明	示例
+-m	模型路径	-m model.gguf
+--host	监听地址	--host 0.0.0.0
+--port	端口	--port 8080
+-c	上下文长度	-c 4096
+-ngl	GPU 层数	-ngl 99（全部放 GPU）
+-np	并行请求数	-np 4
+--api-key	设置 API Key	--api-key your-key
+
+
+{
+  "meta": {
+    "lastTouchedVersion": "2026.3.12",
+    "lastTouchedAt": "2026-03-15T04:32:15.951Z"
+  },
+  "wizard": {
+    "lastRunAt": "2026-03-13T15:05:35.337Z",
+    "lastRunVersion": "2026.3.12",
+    "lastRunCommand": "onboard",
+    "lastRunMode": "local"
+  },
+  "models": {
+    "providers": {
+      "local": {
+        "baseUrl": "http://127.0.0.1:8088/v1",
+        "apiKey": "__OPENCLAW_REDACTED__",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "Qwen3.5-4B-Q4_K_M.gguf",
+            "name": "llama.cpp local",
+            "api": "openai-completions",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 22768,
+            "maxTokens": 22768
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "local/Qwen3.5-4B-Q4_K_M.gguf"
+      },
+      "workspace": "F:\\work\\openclaw\\workspace",
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
+      }
+    }
+  },
+  "tools": {
+    "profile": "coding",
+    "web": {
+      "search": {
+        "enabled": false
+      },
+      "fetch": {
+        "enabled": true
+      }
+    }
+  },
+  "messages": {
+    "ackReactionScope": "group-mentions"
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true,
+    "ownerDisplay": "raw"
+  },
+  "session": {
+    "dmScope": "per-channel-peer"
+  },
+  "hooks": {
+    "internal": {
+      "enabled": true,
+      "entries": {
+        "bootstrap-extra-files": {
+          "enabled": true
+        },
+        "boot-md": {
+          "enabled": true
+        }
+      }
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "loopback",
+    "auth": {
+      "mode": "token",
+      "token": "__OPENCLAW_REDACTED__"
+    },
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    },
+    "nodes": {
+      "denyCommands": [
+        "camera.snap",
+        "camera.clip",
+        "screen.record",
+        "contacts.add",
+        "calendar.add",
+        "reminders.add",
+        "sms.send"
+      ]
+    }
+  }
+}
